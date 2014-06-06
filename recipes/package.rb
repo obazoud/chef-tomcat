@@ -22,17 +22,17 @@
 # packages, damn the FHS
 
 version = node['tomcat']['version'].to_s
-node["tomcat"]["user"] = "tomcat#{version}"
-node["tomcat"]["group"] = "tomcat#{version}"
-node["tomcat"]["home"] = "/usr/share/tomcat#{version}"
-node["tomcat"]["base"] = "/var/lib/tomcat#{version}"
-node["tomcat"]["config_dir"] = "/etc/tomcat#{version}"
+node.default["tomcat"]["user"] = "tomcat#{version}"
+node.default["tomcat"]["group"] = "tomcat#{version}"
+node.default["tomcat"]["home"] = "/usr/share/tomcat#{version}"
+node.default["tomcat"]["base"] = "/var/lib/tomcat#{version}"
+node.default["tomcat"]["config_dir"] = "/etc/tomcat#{version}"
 config_dir = node["tomcat"]["config_dir"]
-node["tomcat"]["log_dir"] = "/var/log/tomcat#{version}"
-node["tomcat"]["tmp_dir"] = "/tmp/tomcat#{version}-tmp"
-node["tomcat"]["work_dir"] = "/var/cache/tomcat#{version}"
-node["tomcat"]["context_dir"] = "#{config_dir}/Catalina/localhost"
-node["tomcat"]["webapp_dir"] = "/var/lib/tomcat#{version}/webapps"
+node.default["tomcat"]["log_dir"] = "/var/log/tomcat#{version}"
+node.default["tomcat"]["tmp_dir"] = "/tmp/tomcat#{version}-tmp"
+node.default["tomcat"]["work_dir"] = "/var/cache/tomcat#{version}"
+node.default["tomcat"]["context_dir"] = "#{config_dir}/Catalina/localhost"
+node.default["tomcat"]["webapp_dir"] = "/var/lib/tomcat#{version}/webapps"
 
 # this recipe only supports debian or ubuntu
 unless platform? ["debian", "ubuntu"]

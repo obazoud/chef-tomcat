@@ -28,6 +28,7 @@ if platform? [ "centos","redhat","fedora"]
 end
 
 user node['tomcat']['user']
+group node['tomcat']['user']
 
 ark "tomcat" do
   url node['tomcat'][version]['url']
